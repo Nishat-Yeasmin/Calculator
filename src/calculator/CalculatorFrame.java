@@ -339,13 +339,9 @@ public class CalculatorFrame extends JFrame implements ActionListener {
         if(source == equalButton){
 
 
-            num2 =
-                    Double.parseDouble(expression);
-
-
+            num2 = Double.parseDouble(expression);
 
             switch(operator){
-
 
                 case "+":
                     result=num1+num2;
@@ -367,6 +363,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                     if(num2==0){
 
                         resultLabel.setText("Error");
+                        System.out.println(formatNumber(num1) + "/" + formatNumber(num2) + " = Error" );
 
                         return;
 
@@ -377,20 +374,16 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                     break;
 
             }
-            if(result == (int) result){
+//
+            resultLabel.setText(formatNumber(result));
 
-                resultLabel.setText(
-                        String.valueOf((int)result)
-                );
-
-            }
-            else{
-
-                resultLabel.setText(
-                        String.valueOf(result)
-                );
-
-            }
+            System.out.println(
+                    formatNumber(num1) + " "
+                            + operator + " "
+                            + formatNumber(num2)
+                            + " = "
+                            + formatNumber(result)
+            );
 
         }
 
