@@ -929,15 +929,4 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                 .replace("-", "−");
     }
 
-
-    // =========================================================
-    // MAIN METHOD
-    // =========================================================
-
-//    public static void main(String[] args) {
-//
-//        SwingUtilities.invokeLater(() ->
-//                new CalculatorFrame()
-//        );
-//    }
 }
