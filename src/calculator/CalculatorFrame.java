@@ -475,7 +475,7 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                 );
 
                 // Lower line = result
-                resultLabel.setText(
+               setResultText(
                         formattedResult
                 );
 
@@ -495,8 +495,10 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                 justCalculated = true;
 
             } catch (Exception ex) {
+                expressionLabel.setText( displayExpression(expression) );
 
                 resultLabel.setText("Error");
+                System.out.println( displayExpression(expression) + " = Error" );
                 justCalculated = true;
             }
 
@@ -928,5 +930,49 @@ public class CalculatorFrame extends JFrame implements ActionListener {
                 .replace("/", "÷")
                 .replace("-", "−");
     }
+
+// =========================================================
+// AUTO RESIZE RESULT FONT
+// =========================================================
+
+    private void setResultText(String text) {
+
+        resultLabel.setText(text);
+
+        int length = text.length();
+
+        if (length <= 8) {
+
+            resultLabel.setFont(
+                    new Font("Arial", Font.BOLD, 45)
+            );
+
+        } else if (length <= 12) {
+
+            resultLabel.setFont(
+                    new Font("Arial", Font.BOLD, 38)
+            );
+
+        } else if (length <= 16) {
+
+            resultLabel.setFont(
+                    new Font("Arial", Font.BOLD, 32)
+            );
+
+        } else if (length <= 20) {
+
+            resultLabel.setFont(
+                    new Font("Arial", Font.BOLD, 27)
+            );
+
+        } else {
+
+            resultLabel.setFont(
+                    new Font("Arial", Font.BOLD, 23)
+            );
+        }
+    }
+
+
 
 }
